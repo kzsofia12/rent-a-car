@@ -1,0 +1,11 @@
+<mat-dialog-content>
+  <div class="rental-header">
+    <h4>{{ client.name }} - {{vehicle.brand}} {{vehicle.brand_type}}</h4>
+  </div>
+  <div class="rental-body">
+    <p>Kölcsönzés kezdete: {{ data.rented_at }}</p>
+    <p>Kölcsönzéskor kiadott kilóméter: {{ vehicle.km }}</p>
+  </div>
+  <hr>
+  <app-rent-close-form [rental]="data" [vehicle]="vehicle" (closeRent)="closeRent($event)"></app-rent-close-form>
+</mat-dialog-content>

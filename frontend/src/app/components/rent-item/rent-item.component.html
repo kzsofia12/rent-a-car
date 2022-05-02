@@ -1,0 +1,38 @@
+<div class="rent">
+  <mat-card>
+   <mat-card-header>
+        <h3>{{ client.name }}-</h3>
+        <h3>{{ vehicle.brand }} {{vehicle.brand_type}}</h3>
+   </mat-card-header>
+   <mat-card-subtitle>
+     <mat-grid-list cols="4" rowHeight="40px">
+      <mat-grid-tile>
+        <p>Kölcsönzés kezdete: {{ pipe.transform(rental.rented_at, 'd/M/yy') }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Kölcsönzés vége: {{ pipe.transform(rental.rented_end, 'd/M/yy') }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Aktuális km állás: {{ rental.km }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Sérült: {{ (rental.is_damaged)? 'Igen': 'Nem'}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Státusz: {{ rental.status }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Végső ár: {{ rental.final_price }}</p>
+      </mat-grid-tile>
+     </mat-grid-list>
+   </mat-card-subtitle>
+    <mat-card-actions align="end">
+      <div class="rent-footer" *ngIf="rental.status != 'befejezett'">
+        <button mat-button color="primary" type="submit" (click)="openDialog(rental)">Kölcsönzés lezárása</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<br>
+
+

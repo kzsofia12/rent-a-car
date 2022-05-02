@@ -1,0 +1,32 @@
+<div class="search-bar">
+  <mat-grid-list cols="8" rowHeight="60px" rowWidth="15%">
+    <mat-grid-tile [colspan]="1">Keresés:</mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <mat-form-field>
+        <mat-label>Rendszám</mat-label>
+        <input name="license_plate_number" type="text" matInput (keyup)="searchByFilter()" [(ngModel)]="license_plate_number">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <mat-form-field>
+        <mat-label>Jármű tipusa</mat-label>
+        <mat-select name="type" (selectionChange)="searchByFilter()" [(ngModel)]="type" >
+          <mat-option value="" >Összes</mat-option>
+          <mat-option value="auto">Autó</mat-option>
+          <mat-option value="vizijármű">Vizijármű</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <mat-form-field>
+        <mat-label>Jármű státusza</mat-label>
+        <mat-select name="status" (selectionChange)="searchByFilter()" [(ngModel)]="status" >
+          <mat-option value="" >Összes</mat-option>
+          <mat-option value="kikölcsönzött" >Kölcsönzött</mat-option>
+          <mat-option value="szabad">Szabad</mat-option>
+          <mat-option value="selejtezett">Selejtezett</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

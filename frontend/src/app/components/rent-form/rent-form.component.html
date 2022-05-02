@@ -1,0 +1,41 @@
+<button mat-flat-button color="primary" class="rent-button" (click)="showForm()">Új Kölcsönzés</button>
+<br>
+<div class="rent-form" *ngIf="isAdd">
+  <mat-card>
+    <form (ngSubmit)="onSubmit()" #rentForm="ngForm">
+      <div class="form-controll">
+        <mat-form-field>
+          <mat-label>Ügyfél</mat-label>
+          <mat-select name="client_id" required [(ngModel)]="client_id" #clientsInput="ngModel">
+            <mat-option *ngFor="let client of clients"  [value]="client.id">{{ client.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="clientsInput.invalid">Ne hagyja üresen a mezőt</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-control">
+        <mat-form-field>
+          <mat-label>Jármű</mat-label>
+          <mat-select name="vehicle_id" required [(ngModel)]="vehicle_id" #vehiclesInput="ngModel">
+            <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.id" >{{ vehicle.brand }} {{vehicle.brand_type}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="vehiclesInput.invalid">Ne hagyja üresen a mezőt</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-control">
+        <mat-form-field>
+          <mat-label>Kölcsönzés Dátuma</mat-label>
+          <input name="rented_at" required matInput [matDatepicker]="picker" [(ngModel)]="rented_at" #dateInput="ngModel">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="dateInput.invalid">Ne hagyja üresen a mezőt</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-control">
+        <button mat-raised-button color="primary" class="new-rent-button" [disabled]="rentForm.invalid">Kölcsönzés</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<br>
+

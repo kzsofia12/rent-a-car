@@ -1,0 +1,22 @@
+<div class="rent-form">
+    <form (ngSubmit)="rentCloseSubmit()" #rentCloseForm="ngForm">
+      <div class="form-controll">
+        <mat-label>Sérült az autó</mat-label>
+        <div class="form-check">
+          <mat-checkbox name="is_damaged" [(ngModel)]="is_damaged">Igen</mat-checkbox>
+        </div>
+      </div>
+      <div class="form-control">
+        <mat-form-field>
+          <mat-label>Aktuális kilométer</mat-label>
+          <input name="actually_km" required [min]="vehicle.km" [(ngModel)]="actually_km" matInput type="number" #kmInput="ngModel">
+          <mat-error *ngIf="kmInput.invalid || kmInput.dirty">Minimum km: {{vehicle.km}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-control">
+        <button mat-raised-button color="primary" class="new-rent-button" [disabled]="rentCloseForm.invalid">Lezárás</button>
+      </div>
+    </form>
+  </div>
+
+

@@ -1,0 +1,123 @@
+<button (click)="showForm()" mat-raised-button color="primary" class="toggle-button">{{button_text}}<mat-icon>add</mat-icon></button>
+<mat-card *ngIf="isAdd==true">
+  <form (ngSubmit)="onSubmit()" #newVehicle="ngForm">
+    <div class="new-vehicle-form">
+      <mat-grid-list cols="3" rowHeight="70px">
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Jármű tipusa</mat-label>
+              <mat-select name="vehicle_type" required [(ngModel)]="vehicle_type" #vTypeInput="ngModel">
+                <mat-option value="auto">Autó</mat-option>
+                <mat-option value="vizijármű">Vizijármű</mat-option>
+              </mat-select>
+              <mat-error *ngIf="vTypeInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Márka -->
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Jármű márkája</mat-label>
+              <input name="vehicle_brand" matInput required [(ngModel)]="vehicle_brand" #brandInput="ngModel">
+              <mat-error *ngIf="brandInput.invalid">Ne hagyja üresen a mezőt</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Márka tipus -->
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Márka tipusa</mat-label>
+              <input name="brand_type" matInput required [(ngModel)]="brand_type" #brandTypeInput="ngModel">
+              <mat-error *ngIf="brandTypeInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Futott km -->
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Futott km</mat-label>
+              <input name="km" type="number" matInput required [(ngModel)]="km" #kmInput="ngModel">
+              <mat-error *ngIf="kmInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Rendszám -->
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Rendszám</mat-label>
+              <input
+                name="registration_plate"
+                matInput required
+                [(ngModel)]="license_plate_number"
+                minlength="7"
+                placeholder="pl: ABC-123"
+                #lpnInput="ngModel">
+              <mat-error *ngIf="lpnInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Státusz -->
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Státusz</mat-label>
+              <mat-select name="status" required [(ngModel)]="status" #statusInput="ngModel">
+                <mat-option value="kölcsönzött">Kölcsönzött</mat-option>
+                <mat-option value="szabad" default>Szabad</mat-option>
+                <mat-option value="selejetezett">Selejtezett</mat-option>
+              </mat-select>
+              <mat-error *ngIf="statusInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Beszerzés Dátuma -->
+        <mat-grid-tile [colspan]="3">
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Beszerzés dátuma:</mat-label>
+              <input name="acquisition_date" required matInput [matDatepicker]="picker" [(ngModel)]="procurement_date" #pdInput="ngModel">
+              <mat-hint>MM/DD/YYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="pdInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Kilométer ár -->
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Kilóméter Ár:</mat-label>
+              <input name="km_price" matInput required [(ngModel)]="km_price" #kmpInput="ngModel">
+              <mat-error *ngIf="kmpInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- Napi ár-->
+        <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Napi ár:</mat-label>
+              <input name="daily_price" matInput required [(ngModel)]="daily_price" #dpInput="ngModel">
+              <mat-error *ngIf="kmpInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <!-- gomb -->
+        <mat-grid-tile [colspan]="3">
+          <div class="form-control">
+            <button mat-flat-button color="primary" [disabled]="newVehicle.invalid">Hozzáadás</button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </form>
+</mat-card>
+<br>
+
+

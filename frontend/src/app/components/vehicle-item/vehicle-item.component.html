@@ -1,0 +1,41 @@
+<div class="vehicle">
+  <mat-card>
+    <mat-card-title>{{ vehicle.brand }} {{vehicle.brand_type}}</mat-card-title>
+    <mat-card-subtitle>
+      <mat-grid-list cols="3" rowHeight="30px">
+        <mat-grid-tile>
+          <b>Tipus: </b> {{vehicle.type}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Márka: </b> {{vehicle.brand}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Márka tipusa: </b> {{vehicle.brand_type}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Státusz: </b> {{vehicle.status}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Futott km: </b> {{vehicle.km}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Rendszám: </b> {{vehicle.license_plate_number}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Beszerzés dátuma: </b> {{pipe.transform(vehicle.procurement_date, 'd/M/yyyy')}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Kilométer ár: </b> {{vehicle.km_price}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <b>Napi ár: </b> {{vehicle.daily_price}}
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-subtitle>
+    <mat-card-actions align="end" *ngIf="vehicle.status != 'selejtezett' ">
+      <button mat-button (click)="onScrapping(vehicle)">Selejtezés</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<br>
+

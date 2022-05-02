@@ -1,0 +1,38 @@
+<button mat-flat-button color="primary" class="new-client" (click)="showForm()">Új Ügyfél<mat-icon>add</mat-icon></button>
+<mat-card *ngIf="isAdd==true">
+  <form (ngSubmit)="onSubmit()" #client="ngForm">
+    <div class="form-controll">
+      <mat-form-field>
+        <mat-label>Név</mat-label>
+        <input type="text" required name="client_name" matInput [(ngModel)]="client_name" #nameInput="ngModel">
+        <mat-error *ngIf="nameInput.invalid" >Ne hagyja üresen a mezőt!</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <mat-form-field>
+        <mat-label>Cím</mat-label>
+        <input type="text" required name="client_address" matInput [(ngModel)]="client_address" #adressInput="ngModel">
+        <mat-error *ngIf="adressInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <mat-form-field>
+        <mat-label>Igazolványszám</mat-label>
+        <input type="text" placeholder="pl: 123456DE" required name="client_id_number" matInput [(ngModel)]="client_id_number" #idInput="ngModel">
+        <mat-error *ngIf="idInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <mat-form-field>
+        <mat-label>Telefonszám</mat-label>
+        <input type="text" required placeholder="pl: 36308512943" name="client_phone_number" matInput [(ngModel)]="client_phone_number" #pnInput="ngModel">
+        <mat-error *ngIf="pnInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+        <button mat-raised-button [disabled]="client.invalid" color="primary">Létrehozás</button>
+    </div>
+  </form>
+</mat-card>
+<br>
+

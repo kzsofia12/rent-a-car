@@ -1,0 +1,14 @@
+<h1>Járművek</h1>
+<app-vehicle-form (addNewVehicle)="addVehicle($event)"></app-vehicle-form>
+<app-search-bar (search)="searchVehicle($event)"></app-search-bar>
+<div class="vehicle-list" *ngIf="!is_array_empty ;else emptyList">
+  <app-vehicle-item
+    *ngFor="let vehicle of vehicles "
+    [vehicle]="vehicle"
+    (onScrappingVehicle)="onScrapping(vehicle)" >
+  </app-vehicle-item>
+</div>
+<ng-template #emptyList>
+  <div class="empty-list">Jelenleg nincs elérhető jármű!</div>
+</ng-template>
+

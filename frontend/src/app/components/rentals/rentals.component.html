@@ -1,0 +1,6 @@
+<h2>Kölcsönzések</h2>
+<app-rent-form (addNewRent)="addNewRent($event);"></app-rent-form>
+<app-rent-item
+  *ngFor="let rental of rentals"
+  [rental]="rental" (closingRent)="closingRent(rental)">
+</app-rent-item>
