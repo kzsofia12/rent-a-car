@@ -3,7 +3,7 @@
     <h4>{{ client.name }} - {{vehicle.brand}} {{vehicle.brand_type}}</h4>
   </div>
   <div class="rental-body">
-    <p>Kölcsönzés kezdete: {{ data.rented_at }}</p>
+    <p>Kölcsönzés kezdete: {{ pipe.transform(data.rented_at,"dd/MM/yyyy") }}</p>
     <p>Kölcsönzéskor kiadott kilóméter: {{ vehicle.km }}</p>
   </div>
   <hr>

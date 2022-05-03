@@ -46,6 +46,16 @@ export class VehicleFormComponent implements OnInit {
 
     this.addNewVehicle.emit(new_vehicle);
 
+    this.vehicle_type = "";
+    this.vehicle_brand="";
+    this.brand_type="";
+    this.km = 0;
+    this.license_plate_number="";
+    this.status!="";
+    this.procurement_date=new Date();
+    this.km_price=0;
+    this.daily_price=0;
+
   }
 
   showForm(){

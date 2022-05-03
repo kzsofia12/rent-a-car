@@ -12,8 +12,9 @@
         <mat-label>Jármű tipusa</mat-label>
         <mat-select name="type" (selectionChange)="searchByFilter()" [(ngModel)]="type" >
           <mat-option value="" >Összes</mat-option>
-          <mat-option value="auto">Autó</mat-option>
-          <mat-option value="vizijármű">Vizijármű</mat-option>
+          <mat-option value="Autó">Autó</mat-option>
+          <mat-option value="Vizijármű">Vizijármű</mat-option>
+          <mat-option value="Motor">Motor</mat-option>
         </mat-select>
       </mat-form-field>
     </mat-grid-tile>

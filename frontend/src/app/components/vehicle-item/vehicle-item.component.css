@@ -1,17 +1,19 @@
-.vehicle{
-  background-color: #f4f4f4;
+mat-card-subtitle{
+  padding-top: 10px;
+  padding-bottom: 0px;
 }
 
-.vehicle-header, .vehicle-body{
-  display: flex;
-  flex-direction: row;
-  padding: 10px 0;
+mat-grid-tile{
+  font-size: medium;
+}
+.selejt{
+  color:red;
+  font-size: large;
+  padding-top: 0px;
+}
+h2{
+  color:#3f51b5;
+  margin-left: 5%;
+  font-size: large;
 }
 
-.vehicle-header h3, .vehicle-header h4{
-  margin-right: 10px;
-}
-
-.vehicle-body p{
-  margin-right: 5px;
-}

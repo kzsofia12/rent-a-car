@@ -1,34 +1,33 @@
 <div class="rent">
   <mat-card>
    <mat-card-header>
-        <h3>{{ client.name }}-</h3>
-        <h3>{{ vehicle.brand }} {{vehicle.brand_type}}</h3>
+      <h2><b>{{ client.name }} - {{ vehicle.brand }} {{vehicle.brand_type}}</b></h2>
    </mat-card-header>
    <mat-card-subtitle>
-     <mat-grid-list cols="4" rowHeight="40px">
+     <mat-grid-list cols="3" rowHeight="40px">
       <mat-grid-tile>
-        <p>Kölcsönzés kezdete: {{ pipe.transform(rental.rented_at, 'd/M/yy') }}</p>
+        <p><b>Kölcsönzés kezdete: </b> {{ pipe.transform(rental.rented_at, 'd/M/yy') }}</p>
       </mat-grid-tile>
       <mat-grid-tile>
-        <p>Kölcsönzés vége: {{ pipe.transform(rental.rented_end, 'd/M/yy') }}</p>
+        <p><b>Státusz: </b> {{ rental.status }}</p>
       </mat-grid-tile>
-      <mat-grid-tile>
-        <p>Aktuális km állás: {{ rental.km }}</p>
+      <mat-grid-tile *ngIf="rental.km != null">
+        <p><b>Záró kilométer állás: </b>{{ rental.km }}</p>
       </mat-grid-tile>
-      <mat-grid-tile>
-        <p>Sérült: {{ (rental.is_damaged)? 'Igen': 'Nem'}}</p>
+      <mat-grid-tile *ngIf="rental.final_price != null">
+        <p><b>Sérült: </b> {{ (rental.is_damaged)? 'Igen': 'Nem'}}</p>
       </mat-grid-tile>
-      <mat-grid-tile>
-        <p>Státusz: {{ rental.status }}</p>
+      <mat-grid-tile *ngIf="rental.rented_end != null">
+        <p><b>Kölcsönzés vége: </b> {{ pipe.transform(rental.rented_end, 'd/M/yy') }}</p>
       </mat-grid-tile>
-      <mat-grid-tile>
-        <p>Végső ár: {{ rental.final_price }}</p>
+      <mat-grid-tile *ngIf="rental.final_price != null">
+        <p><b>Fizetendő összeg: </b> {{ rental.final_price }} Ft</p>
       </mat-grid-tile>
      </mat-grid-list>
    </mat-card-subtitle>
     <mat-card-actions align="end">
       <div class="rent-footer" *ngIf="rental.status != 'befejezett'">
-        <button mat-button color="primary" type="submit" (click)="openDialog(rental)">Kölcsönzés lezárása</button>
+        <button mat-button class="close" type="submit" (click)="openDialog(rental)">Kölcsönzés lezárása</button>
       </div>
     </mat-card-actions>
   </mat-card>

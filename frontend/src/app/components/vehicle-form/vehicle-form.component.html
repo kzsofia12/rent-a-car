@@ -8,8 +8,9 @@
             <mat-form-field>
               <mat-label>Jármű tipusa</mat-label>
               <mat-select name="vehicle_type" required [(ngModel)]="vehicle_type" #vTypeInput="ngModel">
-                <mat-option value="auto">Autó</mat-option>
-                <mat-option value="vizijármű">Vizijármű</mat-option>
+                <mat-option value="Autó">Autó</mat-option>
+                <mat-option value="Vizijármű">Vizijármű</mat-option>
+                <mat-option value="Motor">Motor</mat-option>
               </mat-select>
               <mat-error *ngIf="vTypeInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
             </mat-form-field>
@@ -39,7 +40,7 @@
         <mat-grid-tile>
           <div class="form-control">
             <mat-form-field>
-              <mat-label>Futott km</mat-label>
+              <mat-label>Kilométer óra állás</mat-label>
               <input name="km" type="number" matInput required [(ngModel)]="km" #kmInput="ngModel">
               <mat-error *ngIf="kmInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
             </mat-form-field>
@@ -75,24 +76,11 @@
             </mat-form-field>
           </div>
         </mat-grid-tile>
-        <!-- Beszerzés Dátuma -->
-        <mat-grid-tile [colspan]="3">
-          <div class="form-control">
-            <mat-form-field>
-              <mat-label>Beszerzés dátuma:</mat-label>
-              <input name="acquisition_date" required matInput [matDatepicker]="picker" [(ngModel)]="procurement_date" #pdInput="ngModel">
-              <mat-hint>MM/DD/YYY</mat-hint>
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngIf="pdInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
         <!-- Kilométer ár -->
         <mat-grid-tile>
           <div class="form-control">
             <mat-form-field>
-              <mat-label>Kilóméter Ár:</mat-label>
+              <mat-label>Ár(km):</mat-label>
               <input name="km_price" matInput required [(ngModel)]="km_price" #kmpInput="ngModel">
               <mat-error *ngIf="kmpInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
             </mat-form-field>
@@ -102,9 +90,22 @@
         <mat-grid-tile>
           <div class="form-control">
             <mat-form-field>
-              <mat-label>Napi ár:</mat-label>
+              <mat-label>Ár(nap):</mat-label>
               <input name="daily_price" matInput required [(ngModel)]="daily_price" #dpInput="ngModel">
               <mat-error *ngIf="kmpInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+         <!-- Beszerzés Dátuma -->
+         <mat-grid-tile>
+          <div class="form-control">
+            <mat-form-field>
+              <mat-label>Beszerzés dátuma:</mat-label>
+              <input name="acquisition_date" required matInput [matDatepicker]="picker" [(ngModel)]="procurement_date" #pdInput="ngModel">
+              <mat-hint>MM/DD/YYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="pdInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
             </mat-form-field>
           </div>
         </mat-grid-tile>

@@ -7,8 +7,9 @@ export enum status {
 }
 
 export enum type {
-    CAR = "auto",
-    WATERCRAFT = "vizijármű",
+    CAR = "Autó",
+    WATERCRAFT = "Vizijármű",
+    MOTOR = "Motor"
 }
 
 @Entity()

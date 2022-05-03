@@ -31,6 +31,10 @@ export class ClientFormComponent implements OnInit {
 
     this.addNewClient.emit(new_client);
     this.isAdd=false;
+    this.client_name = "";
+    this.client_address = "",
+    this.client_id_number = "",
+    this.client_phone_number = ""
   }
 
   showForm(){

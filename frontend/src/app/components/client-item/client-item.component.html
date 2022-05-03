@@ -1,13 +1,13 @@
-<div class="client">
-  <mat-card>
-    <mat-card-title>{{client.name}} ({{client.idNumber}})</mat-card-title>
+<div fxLayout="row wrap">
+  <div fxFlex="25%">
+  <mat-card class="list-card" fxFlex = "50">
+    <mat-card-title>{{client.name}}</mat-card-title>
     <mat-card-subtitle>
-      <div class="client-body">
-        <p class="idNumber"><b>Igazolványszám</b>:{{ client.idNumber }}</p>
-        <p class="phoneNumber"><b>Telefonszám</b>:{{ client.phoneNumber }}</p>
-        <p class="phoneNumber"><b>Lakcím</b>:{{ client.address }}</p>
-      </div>
+        <p class="idnum"><b>Igazolványszám</b>: {{ client.idNumber }}</p>
+        <p><b>Telefonszám</b>: {{ client.phoneNumber }}</p>
+        <p><b>Lakcím</b>: {{ client.address }}</p>
     </mat-card-subtitle>
   </mat-card>
+  </div>
 </div>
 <br>

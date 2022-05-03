@@ -18,7 +18,7 @@ export class RentFormComponent implements OnInit {
 
   client_id!: number;
   vehicle_id!: number;
-  rented_at!: Date;
+  rented_at?: Date;
 
   isAdd: boolean=false;
 
@@ -41,12 +41,10 @@ export class RentFormComponent implements OnInit {
     }
 
     this.addNewRent.emit(newRent);
-
-    this.vehicles.forEach((vehicle)=>{
-      if (vehicle.id === this.vehicle_id) {
-        vehicle.status="kölcsönzött";
-      }
-    });
+    this.isAdd = false;
+    this.rented_at=new Date(Date.now());
+    this.client_id=0;
+    this.vehicle_id=0;
   }
 
   showForm(){
@@ -54,6 +52,7 @@ export class RentFormComponent implements OnInit {
       this.isAdd = false;
     }else{
       this.isAdd = true;
+      this.vehicleService.getVehicles().subscribe((vehicle)=>this.vehicles = vehicle.filter((vehicle)=> vehicle.status !== "selejtezett" && vehicle.status !== "kikölcsönzött" ));
     }
   }
 
