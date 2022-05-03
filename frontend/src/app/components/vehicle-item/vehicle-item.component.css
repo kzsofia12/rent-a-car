@@ -6,14 +6,16 @@ mat-card-subtitle{
 mat-grid-tile{
   font-size: medium;
 }
+
+mat-card-title{
+  color:#3f51b5;
+  margin-left: 20px;
+  padding-bottom: 20px;
+}
 .selejt{
   color:red;
   font-size: large;
   padding-top: 0px;
 }
-h2{
-  color:#3f51b5;
-  margin-left: 5%;
-  font-size: large;
-}
+
 

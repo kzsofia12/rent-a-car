@@ -1,15 +1,23 @@
-h2{
+mat-card-title{
   color:#3f51b5;
+  margin-left: 20px;
+  padding-bottom: 20px;
 }
 mat-grid-tile{
   font-size: large;
 }
 
-h2{
-  font-size: x-large;
-}
 
 .close{
   font-size: large;
   color:red;
+}
+
+.move{
+  margin-left: 10px;
+}
+
+.price{
+  font-size: x-large;
+  color: #B22727;
 }

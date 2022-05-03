@@ -40,7 +40,7 @@
         <mat-grid-tile>
           <div class="form-control">
             <mat-form-field>
-              <mat-label>Kilométer óra állás</mat-label>
+              <mat-label>Kilométeróra állás</mat-label>
               <input name="km" type="number" matInput required [(ngModel)]="km" #kmInput="ngModel">
               <mat-error *ngIf="kmInput.invalid">Ne hagyja üresen a mezőt!</mat-error>
             </mat-form-field>
@@ -102,7 +102,7 @@
             <mat-form-field>
               <mat-label>Beszerzés dátuma:</mat-label>
               <input name="acquisition_date" required matInput [matDatepicker]="picker" [(ngModel)]="procurement_date" #pdInput="ngModel">
-              <mat-hint>MM/DD/YYY</mat-hint>
+              <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
               <mat-error *ngIf="pdInput.invalid">Ne hagyja üresen a mezőt!</mat-error>

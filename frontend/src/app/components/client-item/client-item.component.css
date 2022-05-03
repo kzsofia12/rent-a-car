@@ -1,9 +1,11 @@
 p{
   font-size: medium;
+  text-align: center;
 }
 .idnum{
   padding-top: 20px;
 }
-.list-card{
+mat-card-title{
+  color:#3f51b5;
   text-align: center;
 }

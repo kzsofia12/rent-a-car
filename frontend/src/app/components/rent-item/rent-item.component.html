@@ -1,27 +1,25 @@
 <div class="rent">
   <mat-card>
-   <mat-card-header>
-      <h2><b>{{ client.name }} - {{ vehicle.brand }} {{vehicle.brand_type}}</b></h2>
-   </mat-card-header>
+    <mat-card-title>{{ client.name }} - {{ vehicle.brand }} {{vehicle.brand_type}}</mat-card-title>
    <mat-card-subtitle>
      <mat-grid-list cols="3" rowHeight="40px">
-      <mat-grid-tile>
-        <p><b>Kölcsönzés kezdete: </b> {{ pipe.transform(rental.rented_at, 'd/M/yy') }}</p>
+      <mat-grid-tile class="move">
+        <p><b>Kölcsönzés kezdete: </b> {{ pipe.transform(rental.rented_at, 'yyyy-MM-dd') }}</p>
       </mat-grid-tile>
       <mat-grid-tile>
         <p><b>Státusz: </b> {{ rental.status }}</p>
       </mat-grid-tile>
       <mat-grid-tile *ngIf="rental.km != null">
-        <p><b>Záró kilométer állás: </b>{{ rental.km }}</p>
-      </mat-grid-tile>
-      <mat-grid-tile *ngIf="rental.final_price != null">
-        <p><b>Sérült: </b> {{ (rental.is_damaged)? 'Igen': 'Nem'}}</p>
+        <p><b>Záró kilométeróra állás: </b>{{ rental.km }}</p>
       </mat-grid-tile>
       <mat-grid-tile *ngIf="rental.rented_end != null">
-        <p><b>Kölcsönzés vége: </b> {{ pipe.transform(rental.rented_end, 'd/M/yy') }}</p>
+        <p><b>Kölcsönzés vége: </b> {{ pipe.transform(rental.rented_end, 'yyyy-MM-dd') }}</p>
+       </mat-grid-tile>
+       <mat-grid-tile *ngIf="rental.final_price != null">
+        <p><b>Sérült: </b> {{ (rental.is_damaged)? 'Igen': 'Nem'}}</p>
       </mat-grid-tile>
-      <mat-grid-tile *ngIf="rental.final_price != null">
-        <p><b>Fizetendő összeg: </b> {{ rental.final_price }} Ft</p>
+      <mat-grid-tile *ngIf="rental.final_price != null" colspan="3">
+        <p class="price"><b>Fizetendő összeg: </b> {{ rental.final_price }} Ft</p>
       </mat-grid-tile>
      </mat-grid-list>
    </mat-card-subtitle>

@@ -1,6 +1,6 @@
 <div class="vehicle">
   <mat-card>
-    <mat-card-title><h2><b>{{ vehicle.brand }} {{vehicle.brand_type}}</b></h2></mat-card-title>
+    <mat-card-title>{{ vehicle.brand }} {{vehicle.brand_type}}</mat-card-title>
     <mat-card-subtitle>
       <mat-grid-list cols="3" rowHeight="30px">
         <mat-grid-tile>
@@ -16,13 +16,13 @@
           <p><b>Státusz: </b> {{vehicle.status}}</p>
         </mat-grid-tile>
         <mat-grid-tile>
-          <p><b>Kilométer óra állás: </b> {{vehicle.km}}</p>
+          <p><b>Kilométeróra állás: </b> {{vehicle.km}}</p>
         </mat-grid-tile>
         <mat-grid-tile>
           <p><b>Rendszám: </b> {{vehicle.license_plate_number}}</p>
         </mat-grid-tile>
         <mat-grid-tile>
-          <p><b>Beszerzés dátuma: </b> {{pipe.transform(vehicle.procurement_date, 'd/M/yyyy')}}</p>
+          <p><b>Beszerzés dátuma: </b> {{pipe.transform(vehicle.procurement_date, 'yyyy-MM-dd')}}</p>
         </mat-grid-tile>
         <mat-grid-tile>
           <p><b>Ár (km): </b> {{vehicle.km_price}} Ft</p>
